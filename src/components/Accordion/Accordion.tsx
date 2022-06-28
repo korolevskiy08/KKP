@@ -1,16 +1,25 @@
 import React from "react";
 
-type AccordionPropsType = {
+export type AccordionPropsType = {
     titleValue: string
     collapsed: boolean
+    /**
+     * Elements that are showed when accordion is openned
+     */
     onChange:()=>void
+
+    /**
+     * color oh header text
+     */
+    color: string
 }
 
-export let Accordion= ({titleValue, collapsed, onChange}:AccordionPropsType) => {
+export let Accordion= ({titleValue, collapsed, onChange, color}:AccordionPropsType) => {
     console.log('Render Accordion')
         return (
             <div>
                 <AccordionTitle
+                                color={color}
                                 title={titleValue}
                                 onChange={onChange}
                 />
@@ -37,12 +46,14 @@ let AccordionBody = () => {
 type AccordionTitlePropsType = {
     title: string
     onChange: ()=>void
+    color?: string
 }
 
-let AccordionTitle = ({title, onChange}: AccordionTitlePropsType) => {
+let AccordionTitle = ({title, onChange, color}: AccordionTitlePropsType) => {
     console.log('Accordion Title')
 
     return (
-        <h3 onClick={onChange}> --{title}-- </h3>
+        <h3 style={{color: color ? color : "black"}}
+            onClick={onChange}> --{title}-- </h3>
     )
 }
