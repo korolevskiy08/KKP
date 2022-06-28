@@ -6,7 +6,7 @@ type AccordionPropsType = {
     onChange:()=>void
 }
 
-let Accordion= ({titleValue, collapsed, onChange}:AccordionPropsType) => {
+export let Accordion= ({titleValue, collapsed, onChange}:AccordionPropsType) => {
     console.log('Render Accordion')
         return (
             <div>
@@ -46,5 +46,3 @@ let AccordionTitle = ({title, onChange}: AccordionTitlePropsType) => {
         <h3 onClick={onChange}> --{title}-- </h3>
     )
 }
-
-export default Accordion;

@@ -2,13 +2,11 @@ import React from 'react';
 import {useState} from "react";
 
 type PropsType = {
-    // on: boolean
-    onChange: (on: boolean) => void
+    on: boolean
+    setOnnOffCollapsed: () => void
 }
 
-const OnnOff = (props: PropsType) => {
-
-    let [on, setOn] = useState(false)
+export const OnnOff = ({on, setOnnOffCollapsed}:PropsType) => {
 
     const onStyle = {
         width: '30px',
@@ -39,23 +37,11 @@ const OnnOff = (props: PropsType) => {
     }
 
 
-    const onClicked = () => {
-        setOn(true)
-        props.onChange(true)
-    }
-    const offClicked = () => {
-        setOn(false)
-        props.onChange(false)
-    }
-
-
     return (
         <div>
-            <div style={onStyle} onClick={onClicked}>On</div>
-            <div style={offStyle} onClick={offClicked}>Off</div>
+            <div style={onStyle} onClick={setOnnOffCollapsed}>On</div>
+            <div style={offStyle} onClick={setOnnOffCollapsed}>Off</div>
             <div style={indicatorStyle}></div>
         </div>
     );
 };
-
-export default OnnOff

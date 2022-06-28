@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import OnnOff from './components/onnOff/OnnOff'
 import UnControlledAccordion from './components/UnControlledAccordion/UnControlledAccordion'
 import {UnConrolledRating} from './components/UnControlledRating/UnConrolledRating';
 import {Rating, RatingValueType} from './components/Rating/Rating'
 import {useState} from "react";
 import Accordion from './components/Accordion/Accordion'
-import ConrolledOnnOff from './components/ConrolledonnOff/ConrolledOnnOff'
+import ConrolledOnnOff from './components/OnnOff/OnnOff'
+import { OnnOff } from './components/UnControlledOnnOff/UnControlledOnnOff';
 
 function App(props: any) {
     console.log('Render App')

@@ -1,15 +1,18 @@
 import React from "react";
 import {useState} from "react";
 
+export type RatingValueType = 0 | 1 | 2 | 3 | 4| 5
+
+
 type RatingPropsType = {
     // value: number
-
+    defaultValue?: RatingValueType
 }
 
 export function UnConrolledRating(props: RatingPropsType) {
     console.log('Render Rating')
 
-    let [value, setValue] = useState(0)
+    let [value, setValue] = useState(props.defaultValue ? props.defaultValue : 0)
 
     return (
         <div>
