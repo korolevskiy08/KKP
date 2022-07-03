@@ -27,7 +27,7 @@ function App(props: any) {
 
 
             <h1>UnControlledRating:</h1>
-            <UnConrolledRating />
+            {/* <UnConrolledRating /> */}
 
             <h1>ConrolledRating:</h1>
             <Rating value={ratingValue}
@@ -38,30 +38,28 @@ function App(props: any) {
 
 
             <h1>ControlledAccorrdion</h1>
-            <Accordion
-            
-            titleValue={'Menu'}
+            {/* <Accordion titleValue={'Menu'}
                 collapsed={accordionCollapsed}
                 onChange={() => setAccordionCollapsed(!accordionCollapsed)}
-            />
+            /> */}
 
 
 
         </div>
 
-    );
+    )
 }
 
 type PagePropsTitle = {
     title: string
 }
 
-let PageTitle = (props: PagePropsTitle) => {
-    console.log('Render AppTitle')
-    return (
-        <h1>{props.title}</h1>
-    )
-}
+// let PageTitle = (props: PagePropsTitle) => {
+//     console.log('Render AppTitle')
+//     return (
+//         <h1>{props.title}</h1>
+//     )
+// }
 
 
 export default App;
