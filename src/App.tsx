@@ -6,7 +6,8 @@ import { Rating, RatingValueType } from './components/Rating/Rating'
 import { useState } from "react";
 import { UnControlledOnnOff } from './components/UnControlledOnnOff/UnControlledOnnOff';
 import { Accordion } from './components/Accordion/Accordion';
-import {OnnOff} from "./components/onnOff/OnnOff";
+import { OnnOff } from "./components/onnOff/OnnOff";
+import { Select } from './components/Select/Select';
 
 function App(props: any) {
     console.log('Render App')
@@ -15,9 +16,21 @@ function App(props: any) {
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
     let [onnOffCollapsed, setOnnOffCollapsed] = useState<boolean>(false)
     let [switchOn, setSwitchOn] = useState<boolean>(false)
+   const itemsSelect =  [
+        {value: '1', title: 'Minsk'},
+        {value: '2', title: 'Moscow'},
+        {value: '3', title: 'Kiev'},
+    ]
+    const [value, setValue] = useState('2')
 
     return (
         <div className='app'>
+           <h1>Select</h1>
+            <Select onChange={setValue}
+                    value={value}
+                    items={itemsSelect}
+                    />
+
             <h1>UnConrolledOnnOff</h1>
             <UnControlledOnnOff onChange={setSwitchOn} />{switchOn.toString()}
 

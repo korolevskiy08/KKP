@@ -1,4 +1,4 @@
-import React, {useState, KeyboardEvent} from 'react';
+import React, {useState, KeyboardEvent, useEffect} from 'react';
 import classes from './Select.module.css'
 
 type ItemType = {
@@ -17,6 +17,11 @@ export const Select = (props: SelectPropsType) => {
     const [active, setActive] = useState(false)
     const [hoveredElement, setHoveredElement] = useState(props.value)
 
+
+    useEffect(()=>{
+        setHoveredElement(props.value)
+    }, [props.value])
+
     const toggleItems = () => setActive(!active)
     const onItemClick = (value: any) => {
         props.onChange(value);
@@ -28,13 +33,22 @@ export const Select = (props: SelectPropsType) => {
 
 
     const onKeyUp = (e: KeyboardEvent<HTMLDivElement>) => {
-        for (let i = 0; i < props.items.length; i++) {
-            if(e.key === "ArrowDown"){
-                console.log(props.value[i++])
-            } else if (e.key === "ArrowUp"){
-                console.log(props.value[i--])
+        if(e.key === 'ArrowDown' || e.key === 'ArrowUp'){
+            for (let i = 0; i < props.items.length; i++) {
+                if(props.items[i].value === hoveredElement){
+                    const pretendentElement = e.key === 'ArrowDown' 
+                    ? props.items[i+1]
+                    : props.items[i-1]
 
+                    if(pretendentElement) {
+                        props.onChange(pretendentElement.value)
+                        break;
+                    }
+                } 
             }
+        } 
+        if (e.key === 'Enter' || e.key === 'Escape'){
+            setActive(false)
         }
     }
     return (
