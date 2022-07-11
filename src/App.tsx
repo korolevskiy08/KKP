@@ -4,9 +4,9 @@ import UnControlledAccordion from './components/UnControlledAccordion/UnControll
 import { UnConrolledRating } from './components/UnControlledRating/UnConrolledRating';
 import { Rating, RatingValueType } from './components/Rating/Rating'
 import { useState } from "react";
-import { OnnOff } from './components/OnnOff/OnnOff';
 import { UnControlledOnnOff } from './components/UnControlledOnnOff/UnControlledOnnOff';
 import { Accordion } from './components/Accordion/Accordion';
+import {OnnOff} from "./components/onnOff/OnnOff";
 
 function App(props: any) {
     console.log('Render App')
