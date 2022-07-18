@@ -52,7 +52,6 @@ export const Select = (props: SelectPropsType) => {
         }
     }
     return (
-
         <>
             <div className={classes.select}
                  onKeyUp={onKeyUp} tabIndex={0}>

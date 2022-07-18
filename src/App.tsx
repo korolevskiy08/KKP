@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import UnControlledAccordion from './components/UnControlledAccordion/UnControlledAccordion'
-import { UnConrolledRating } from './components/UnControlledRating/UnConrolledRating';
-import { Rating, RatingValueType } from './components/Rating/Rating'
-import { useState } from "react";
-import { UnControlledOnnOff } from './components/UnControlledOnnOff/UnControlledOnnOff';
-import { Accordion } from './components/Accordion/Accordion';
-import { OnnOff } from "./components/onnOff/OnnOff";
-import { Select } from './components/Select/Select';
+import {UnConrolledRating} from './components/UnControlledRating/UnConrolledRating';
+import {Rating, RatingValueType} from './components/Rating/Rating'
+import {useState} from "react";
+import {UnControlledOnnOff} from './components/UnControlledOnnOff/UnControlledOnnOff';
+import {Accordion} from './components/Accordion/Accordion';
+import {OnnOff} from "./components/onnOff/OnnOff";
+import {Select} from './components/Select/Select';
 
 function App(props: any) {
     console.log('Render App')
@@ -16,7 +16,7 @@ function App(props: any) {
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
     let [onnOffCollapsed, setOnnOffCollapsed] = useState<boolean>(false)
     let [switchOn, setSwitchOn] = useState<boolean>(false)
-   const itemsSelect =  [
+    const itemsSelect = [
         {value: '1', title: 'Minsk'},
         {value: '2', title: 'Moscow'},
         {value: '3', title: 'Kiev'},
@@ -25,29 +25,29 @@ function App(props: any) {
 
     return (
         <div className='app'>
-           <h1>Select</h1>
+            <h1>Select</h1>
             <Select onChange={setValue}
                     value={value}
                     items={itemsSelect}
-                    />
+            />
 
             <h1>UnConrolledOnnOff</h1>
-            <UnControlledOnnOff onChange={setSwitchOn} />{switchOn.toString()}
+            <UnControlledOnnOff onChange={setSwitchOn}/>{switchOn.toString()}
 
             <h1>ControlledOnnOff</h1>
             <OnnOff on={onnOffCollapsed}
-                setOnnOffCollapsed={() => setOnnOffCollapsed(!onnOffCollapsed)} />
+                    setOnnOffCollapsed={() => setOnnOffCollapsed(!onnOffCollapsed)}/>
 
 
             <h1>UnControlledRating:</h1>
-            {/* <UnConrolledRating /> */}
+            {/*<UnConrolledRating/>*/}
 
             <h1>ConrolledRating:</h1>
             <Rating value={ratingValue}
-                onClick={setRatingValue} />
+                    onClick={setRatingValue}/>
 
             <h1>UnConrolledAccordion</h1>
-            <UnControlledAccordion titleValue={"Menu"} />
+            <UnControlledAccordion titleValue={"Menu"}/>
 
 
             <h1>ControlledAccorrdion</h1>
@@ -55,7 +55,6 @@ function App(props: any) {
                 collapsed={accordionCollapsed}
                 onChange={() => setAccordionCollapsed(!accordionCollapsed)}
             /> */}
-
 
 
         </div>
