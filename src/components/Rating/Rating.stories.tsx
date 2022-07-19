@@ -7,14 +7,16 @@ export default {
     component: Rating,
 }
 
-export const EmptyStars = () => <Rating value={0} onClick={x=>x}/> 
-export const Rating1 = () => <Rating value={1} onClick={x=>x}/> 
-export const Rating2 = () => <Rating value={2} onClick={x=>x}/>
-export const Rating3 = () => <Rating value={3} onClick={x=>x}/> 
-export const Rating4 = () => <Rating value={4} onClick={x=>x}/> 
-export const Rating5= () => <Rating value={5} onClick={x=>x}/>  
+const RatingMemo = React.memo(Rating)
+
+export const EmptyStars = () => <RatingMemo value={0} onClick={x=>x}/>
+export const Rating1 = () => <RatingMemo value={1} onClick={x=>x}/>
+export const Rating2 = () => <RatingMemo value={2} onClick={x=>x}/>
+export const Rating3 = () => <RatingMemo value={3} onClick={x=>x}/>
+export const Rating4 = () => <RatingMemo value={4} onClick={x=>x}/>
+export const Rating5= () => <RatingMemo value={5} onClick={x=>x}/>
 
 export const RatingChanged = () => {
 const [reting, setRating] = useState<RatingValueType>(5)
-    return <Rating value={reting} onClick={setRating} />
+    return <RatingMemo value={reting} onClick={setRating} />
 } 

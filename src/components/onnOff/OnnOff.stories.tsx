@@ -8,11 +8,13 @@ export default {
     component: OnnOff,
 }
 
-export const OnnMode = () => <OnnOff on={true} setOnnOffCollapsed={()=>{}}/> 
-export const OffMode = () => <OnnOff on={false} setOnnOffCollapsed={()=>{}}/> 
+const OnnOffMemo = React.memo(OnnOff)
+
+export const OnnMode = () => <OnnOffMemo on={true} setOnnOffCollapsed={()=>{}}/>
+export const OffMode = () => <OnnOffMemo on={false} setOnnOffCollapsed={()=>{}}/>
 
 export const ModeChanged = () => {
     const [value, setValue] = useState(true)
-    return <OnnOff on={value} setOnnOffCollapsed={()=>setValue(!value)}/>
+    return <OnnOffMemo on={value} setOnnOffCollapsed={()=>setValue(!value)}/>
 }
 
