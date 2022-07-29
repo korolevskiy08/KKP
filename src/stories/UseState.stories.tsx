@@ -9,8 +9,8 @@ function generateData() {
     return 1
 }
 
-export const Exemple1 = () => {
-    console.log('Exemple1')
+export const Example1 = () => {
+    console.log('Example1')
 
     // const initValue = useMemo(generateData, [])
 
