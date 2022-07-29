@@ -5,6 +5,7 @@ export default {
 }
 
 export const SimpleExample = () => {
+    const [fake, setFake] = useState(1)
     const [counter, setCounter] = useState(1)
     console.log('SimpleExample')
 
@@ -26,6 +27,32 @@ export const SimpleExample = () => {
     return <>
         hello, {counter}
         <button onClick={()=>setCounter(counter + 1)}>Counter</button>
+        <button onClick={()=>setFake(fake + 1)}>Counter</button>
         {counter}
+    </>
+}
+
+export const SetTimeOutExample = () => {
+    const [fake, setFake] = useState(1)
+    const [counter, setCounter] = useState(1)
+    console.log('SetTimeOutExample')
+
+    // useEffect(()=>{
+    //     console.log('Use effect will be called when the value changes')
+    //     document.title = counter.toString()
+    // })
+    useEffect(()=>{
+        // setTimeout(()=>{
+        //     document.title = counter.toString()
+        // }, 1000)
+        setInterval(()=>{
+            setCounter(state =>state + 1)
+        }, 1000)
+    }, [])
+
+
+
+    return <>
+        counter: {counter}, fake: {fake}
     </>
 }
